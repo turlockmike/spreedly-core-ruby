@@ -101,7 +101,11 @@ module SpreedlyCore
           @errors << "#{friendly_name.capitalize} can't be blank"
         end
       end
-      @errors = @errors.sort{|a,b| a["attribute"] <=> b["attribute"]}
+      if (@errors.is_a?(Array))
+        @errors = @errors.sort{|a,b| a["attribute"] <=> b["attribute"]}
+      else
+        @errors = [@errors]
+      end
     end
 
     def purchase_or_authorize(tran_type, amount, *args)
