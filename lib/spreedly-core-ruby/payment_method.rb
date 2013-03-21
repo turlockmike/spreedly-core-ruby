@@ -115,7 +115,8 @@ module SpreedlyCore
         {
           :currency => args[0],
           :gateway_token => args[1],
-          :ip_address => args[2]
+          :ip_address => args[2],
+          :description => args[3]
         }
       end
 
@@ -132,6 +133,7 @@ module SpreedlyCore
           :amount => amount,
           :currency_code => currency,
           :ip => options[:ip_address],
+          :description => options[:description] || "Spreedly Payment",
           :redirect_url => options[:redirect_url],
           :callback_url => options[:callback_url]
         }
